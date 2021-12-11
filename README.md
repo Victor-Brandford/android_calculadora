@@ -1,6 +1,6 @@
 # android_calculadora
 
-calculadora beta betosa
+calculadora com interface android
 
 ## Getting Started
 
