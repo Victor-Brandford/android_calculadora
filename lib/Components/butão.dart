@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 class butoes_telcado extends StatelessWidget {
   final String? Texto;
-  final ButtonStyle _EstiloRoxo = TextButton.styleFrom(
-      backgroundColor: Colors.purpleAccent,
-      minimumSize: Size(
-      60,
-      60,
+  final String cor = '0xffb74093';
+  final ButtonStyle estiloButtao = TextButton.styleFrom(
+
+    backgroundColor: const Color(int.parse(cor)),
+    minimumSize: Size(
+      70,
+      70,
     ),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(64.0)),
@@ -15,7 +17,6 @@ class butoes_telcado extends StatelessWidget {
       fontSize: 24.0,
     ),
   );
-
   butoes_telcado({
     this.Texto,
   });
@@ -23,12 +24,16 @@ class butoes_telcado extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //
-    return TextButton(
-      style:_EstiloRoxo,
-      //_EstiloRoxo,
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 4.0,horizontal: 12.0),
+      child: TextButton(
+        style: estiloButtao,
 
-      onPressed: () {},
-      child: Text(Texto!,style: TextStyle(color: Colors.white),),
+        onPressed: () {debugPrint(Texto!);},
+        child: Text(Texto!,style: TextStyle(color: Colors.white),),
+      ),
     );
   }
 }
+
+
