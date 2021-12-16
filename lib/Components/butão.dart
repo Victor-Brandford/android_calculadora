@@ -2,38 +2,45 @@ import 'package:flutter/material.dart';
 
 class butoes_telcado extends StatelessWidget {
   final String? Texto;
-  final String cor = '0xffb74093';
-  final ButtonStyle estiloButtao = TextButton.styleFrom(
+  final int cor;
+  final Function? callback;
 
-    backgroundColor: const Color(int.parse(cor)),
-    minimumSize: Size(
-      70,
-      70,
-    ),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(64.0)),
-    ),
-    textStyle: const TextStyle(
-      fontSize: 24.0,
-    ),
-  );
-  butoes_telcado({
+  const butoes_telcado({
+    required Key? key,
+    required this.cor,
     this.Texto,
-  });
+    this.callback,
+
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     //
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 4.0,horizontal: 12.0),
+      padding: EdgeInsets.symmetric(vertical: 2.0, horizontal: 13.0),
       child: TextButton(
-        style: estiloButtao,
-
-        onPressed: () {debugPrint(Texto!);},
-        child: Text(Texto!,style: TextStyle(color: Colors.white),),
+        style: TextButton.styleFrom(
+          backgroundColor: Color(cor),
+          minimumSize: Size(
+            68,
+            68,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(64.0)),
+          ),
+          textStyle: const TextStyle(
+            fontSize: 24.0,
+          ),
+        ),
+        onPressed: () {
+          callback!(Texto);
+          debugPrint(Texto!);
+        },
+        child: Text(
+          Texto!,
+          style: TextStyle(color: Colors.white),
+        ),
       ),
     );
   }
 }
-
-
