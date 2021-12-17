@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 class butoes_telcado extends StatelessWidget {
   final String? Texto;
   final int cor;
-  final Function? callback;
+  final Function? callback;  
 
-  const butoes_telcado({
+  butoes_telcado({
     required Key? key,
     required this.cor,
     this.Texto,
     this.callback,
-
   }) : super(key: key);
 
   @override
@@ -33,8 +32,8 @@ class butoes_telcado extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          callback!(Texto);
-          debugPrint(Texto!);
+            callback!(Texto);
+            debugPrint(Texto!);
         },
         child: Text(
           Texto!,

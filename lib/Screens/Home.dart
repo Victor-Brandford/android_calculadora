@@ -20,6 +20,25 @@ class calc_PageState extends State<calc_Page> {
     });
 
   }
+  void allclear (String text){
+    setState(() {
+      historico ='';
+      Expressao = '';
+    });
+  }
+
+  void clear (String text){
+    setState(() {
+      Expressao = '';
+    });
+  }
+
+  void igual (String text){
+    setState(() {
+      historico = Expressao;
+      Expressao = 'Resultado';
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +52,8 @@ class calc_PageState extends State<calc_Page> {
               child: Container(
                 child : Text(historico,
                   style: TextStyle(
-                    fontSize: 25,
+                    fontSize: 30,
+                     color: Colors.black.withOpacity(0.4),
                   ),
                 ),
                 alignment: Alignment(1,1),
@@ -53,10 +73,10 @@ class calc_PageState extends State<calc_Page> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                butoes_telcado(Texto: 'AC',cor: 0xFFC0C0C0,key: null,),
-                butoes_telcado(Texto: 'C',cor: 0xFFC0C0C0, key: null,),
-                butoes_telcado(Texto: '%',cor: 0xFFC0C0C0, key: null,),
-                butoes_telcado(Texto: '/',cor: 0xFFC0C0C0, key: null,),
+                butoes_telcado(Texto: 'AC',cor: 0xFFC0C0C0,key: null,callback: allclear,),
+                butoes_telcado(Texto: 'C',cor: 0xFFC0C0C0, key: null,callback: clear,),
+                butoes_telcado(Texto: '%',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '/',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
               ],
             ),
             Row(
@@ -65,7 +85,7 @@ class calc_PageState extends State<calc_Page> {
                 butoes_telcado(Texto: '7',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
                 butoes_telcado(Texto: '8',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
                 butoes_telcado(Texto: '9',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: 'X',cor: 0xFFC0C0C0, key: null,),
+                butoes_telcado(Texto: 'X',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
               ],
             ),
             Row(
@@ -74,7 +94,7 @@ class calc_PageState extends State<calc_Page> {
                 butoes_telcado(Texto: '4',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
                 butoes_telcado(Texto: '5',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
                 butoes_telcado(Texto: '6',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: '-',cor: 0xFFC0C0C0, key: null,),
+                butoes_telcado(Texto: '-',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
               ],
             ),
             Row(
@@ -83,16 +103,16 @@ class calc_PageState extends State<calc_Page> {
                 butoes_telcado(Texto: '1',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
                 butoes_telcado(Texto: '2',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
                 butoes_telcado(Texto: '3',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: '+',cor: 0xFFC0C0C0, key: null,),
+                butoes_telcado(Texto: '+',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                butoes_telcado(Texto: '.',cor: 0xFFC0C0C0, key: null,),
+                butoes_telcado(Texto: '.',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
                 butoes_telcado(Texto: '0',cor: 0xFFC0C0C0, key: null, callback: NumeroClique,),
                 butoes_telcado(Texto: '00',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: '=',cor: 0xFFC0C0C0, key: null,),
+                butoes_telcado(Texto: '=',cor: 0xFFC0C0C0, key: null, callback: igual,),
               ],
             ),
           ],
