@@ -12,7 +12,8 @@ class calc_Page extends StatefulWidget {
 }
 
 class calc_PageState extends State<calc_Page> {
-   int resultado = 0;
+   //int resultado = 0;
+   //int quantidade =0;
    String historico ='';
    String Expressao = '';
 
@@ -25,6 +26,10 @@ class calc_PageState extends State<calc_Page> {
   void allclear (String text){
 
     setState(() {
+     // if (resultado==0){
+     //   quantidade = int.parse(Expressao);
+
+    //}
       historico ='';
       Expressao = '';
     });
@@ -42,14 +47,20 @@ class calc_PageState extends State<calc_Page> {
     ContextModel cm = ContextModel();
     double eval = exp.evaluate(EvaluationType.REAL, cm);
     setState(() {
-      historico = Expressao;
-      Expressao = eval.toString();
+     // if (resultado == quantidade){
+        //Expressao = 'numero da pessoa';
+     // }else{
+        //resultado++;
+        historico = Expressao;
+        Expressao = eval.toString();
+      //}
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -80,46 +91,46 @@ class calc_PageState extends State<calc_Page> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                butoes_telcado(Texto: 'AC',cor: 0xFFC0C0C0,key: null,callback: allclear,),
-                butoes_telcado(Texto: 'C',cor: 0xFFC0C0C0, key: null,callback: clear,),
-                butoes_telcado(Texto: '%',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: '/',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: 'AC',cor: 0xffFFFFFF, cortexto:0xFFD45E5E, key: null,callback: allclear,),
+                butoes_telcado(Texto: 'C',cor: 0xffFFFFFF, cortexto: 0xFFD45E5E, key: null,callback: clear,),
+                butoes_telcado(Texto: '%',cor: 0xffFFFFFF, cortexto: 0xFFD45E5E, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '/',cor: 0xffFFFFFF, cortexto: 0xFFD45E5E, key: null,callback: NumeroClique,),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                butoes_telcado(Texto: '7',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: '8',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: '9',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: '*',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '7',cor: 0xff686161, cortexto: 0xff000000, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '8',cor: 0xff686161, cortexto: 0xff000000, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '9',cor: 0xff686161, cortexto: 0xff000000, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '*',cor: 0xffFFFFFF, cortexto: 0xffD45E5E, key: null,callback: NumeroClique,),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                butoes_telcado(Texto: '4',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: '5',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: '6',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: '-',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '4',cor: 0xff686161, cortexto: 0xff000000, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '5',cor: 0xff686161, cortexto: 0xff000000, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '6',cor: 0xff686161, cortexto: 0xff000000, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '-',cor: 0xffFFFFFF, cortexto: 0xffD45E5E, key: null,callback: NumeroClique,),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                butoes_telcado(Texto: '1',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: '2',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: '3',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: '+',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '1',cor: 0xff686161, cortexto: 0xff000000, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '2',cor: 0xff686161, cortexto: 0xff000000, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '3',cor: 0xff686161, cortexto: 0xff000000, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '+',cor: 0xffFFFFFF, cortexto: 0xffD45E5E, key: null,callback: NumeroClique,),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                butoes_telcado(Texto: '.',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: '0',cor: 0xFFC0C0C0, key: null, callback: NumeroClique,),
-                butoes_telcado(Texto: '00',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: '=',cor: 0xFFC0C0C0, key: null, callback: igual,),
+                butoes_telcado(Texto: '.',cor: 0xFF686161, cortexto: 0xff000000, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '0',cor: 0xFF686161, cortexto: 0xff000000, key: null, callback: NumeroClique,),
+                butoes_telcado(Texto: '00',cor: 0xFF686161,cortexto: 0xff000000,  key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '=',cor: 0xffD45E5E, cortexto: 0xffFFFFFF, key: null, callback: igual,),
               ],
             ),
           ],

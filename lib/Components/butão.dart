@@ -4,16 +4,19 @@ class butoes_telcado extends StatelessWidget {
   final String? Texto;
   final int cor;
   final Function? callback;
+  final int cortexto;
   butoes_telcado({
     required Key? key,
     required this.cor,
     this.Texto,
     this.callback,
+    required this.cortexto,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     //
+
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 2.0, horizontal: 13.0),
       child: TextButton(
@@ -27,7 +30,7 @@ class butoes_telcado extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(64.0)),
           ),
           textStyle: const TextStyle(
-            fontSize: 24.0,
+            fontSize: 30.0,
           ),
         ),
         onPressed: () {
@@ -35,7 +38,8 @@ class butoes_telcado extends StatelessWidget {
         },
         child: Text(
           Texto!,
-          style: TextStyle(color: Colors.white),
+
+          style: TextStyle(color: Color(cortexto),),
         ),
       ),
     );
