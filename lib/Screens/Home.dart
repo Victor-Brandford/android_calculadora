@@ -1,5 +1,6 @@
 import 'package:android_calculadora/Components/but%C3%A3o.dart';
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 class calc_Page extends StatefulWidget {
   const calc_Page({Key? key}) : super(key: key);
@@ -11,6 +12,7 @@ class calc_Page extends StatefulWidget {
 }
 
 class calc_PageState extends State<calc_Page> {
+   int resultado = 0;
    String historico ='';
    String Expressao = '';
 
@@ -21,6 +23,7 @@ class calc_PageState extends State<calc_Page> {
 
   }
   void allclear (String text){
+
     setState(() {
       historico ='';
       Expressao = '';
@@ -34,9 +37,13 @@ class calc_PageState extends State<calc_Page> {
   }
 
   void igual (String text){
+    Parser p = Parser();
+    Expression exp = p.parse(Expressao);
+    ContextModel cm = ContextModel();
+    double eval = exp.evaluate(EvaluationType.REAL, cm);
     setState(() {
       historico = Expressao;
-      Expressao = 'Resultado';
+      Expressao = eval.toString();
     });
   }
 
@@ -85,7 +92,7 @@ class calc_PageState extends State<calc_Page> {
                 butoes_telcado(Texto: '7',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
                 butoes_telcado(Texto: '8',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
                 butoes_telcado(Texto: '9',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
-                butoes_telcado(Texto: 'X',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
+                butoes_telcado(Texto: '*',cor: 0xFFC0C0C0, key: null,callback: NumeroClique,),
               ],
             ),
             Row(
